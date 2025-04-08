@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:Neutrition"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/Styles.xaml"/>
+                <ResourceDictionary Source="Style/Colors.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>
