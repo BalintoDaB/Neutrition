@@ -18,7 +18,7 @@
                 <Setter Property="HorizontalAlignment" Value="Right" />
             </Style>
         </Grid.Resources>
-
+        <Frame x:Name="RegContentFrame" Grid.Column="2" NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Window>
