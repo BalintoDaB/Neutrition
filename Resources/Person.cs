@@ -28,9 +28,6 @@ namespace Neutrition.Resources
 
         public void Init()
         {
-            //Read person.json from Data/person.json
-            //Deserialize it to Person object
-            //Set the properties of the Person object
 
             string json = File.ReadAllText("Data/person.json");
             JsonDocument jsonArray = JsonSerializer.Deserialize<JsonDocument>(json);

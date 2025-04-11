@@ -1,4 +1,5 @@
-﻿using Neutrition.Resources;
+﻿using Neutrition.Pages;
+using Neutrition.Resources;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,10 +31,16 @@ namespace Neutrition
         public MainWindow()
         {
             InitializeComponent();
+            MainContentFrame.Navigate(new MainPage());
             Person = new Person();
             Person.Init();
             DataContext = this;
             
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
