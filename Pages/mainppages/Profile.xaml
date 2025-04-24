@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Neutrition.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="356" d:DesignWidth="495"
-      FontFamily="{StaticResource RobotoFont}"
+      FontFamily="{DynamicResource RobotoFont}"
       Title="Profile">
 
     <Grid>

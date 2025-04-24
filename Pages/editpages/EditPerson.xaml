@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:Neutrition.Pages.editpages"
       mc:Ignorable="d" 
       d:DesignHeight="510" d:DesignWidth="300"
-      Title="EditPerson">
+      Title="EditPerson"
+      FontFamily="{DynamicResource RobotoFont}">
 
     <Grid>
         <Grid.RowDefinitions>

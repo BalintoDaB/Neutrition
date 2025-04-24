@@ -36,12 +36,42 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="HOME" Background="Transparent" Margin="10" Padding="5" BorderBrush="Transparent" IsEnabled="True" x:Name="Home_BTN" Grid.Row="0">
+            <Button Content="HOME" Background="Transparent" Margin="10" Padding="5" BorderBrush="Transparent" IsEnabled="True" x:Name="Home_BTN"  Grid.Row="0" IsTabStop="False">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent" BorderBrush="Transparent">
+                            <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
             <Button Content="MEALS" Background="Transparent" Margin="10" Padding="5" BorderBrush="Transparent" IsEnabled="True" x:Name="Meals_BTN" Grid.Row="1">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent" BorderBrush="Transparent">
+                            <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
-            <Button Content="MY FOODS" Background="Transparent" Margin="10" Padding="5" BorderBrush="Transparent" IsEnabled="True" x:Name="MyFoods_BTN" Grid.Row="2"/>
-            <Button Content="PROFILE" Background="Transparent" Margin="10" Padding="5" BorderBrush="Transparent" IsEnabled="True" x:Name="Profile_BTN" Grid.Row="3"/>
+            <Button Content="MY FOODS" Background="Transparent" Margin="10" Padding="5" BorderBrush="Transparent" IsEnabled="True" x:Name="MyFoods_BTN" Grid.Row="2">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent" BorderBrush="Transparent">
+                            <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Content="PROFILE" Background="Transparent" Margin="10" Padding="5" BorderBrush="Transparent" IsEnabled="True" x:Name="Profile_BTN" Grid.Row="3">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent" BorderBrush="Transparent">
+                            <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </Grid>
         <Rectangle Grid.Column="1" Fill="{StaticResource Line}" VerticalAlignment="Center" Height="299" Width="1">
         </Rectangle>

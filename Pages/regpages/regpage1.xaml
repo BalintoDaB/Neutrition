@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Neutrition.Pages.regpages"
       mc:Ignorable="d" 
       d:DesignHeight="510" d:DesignWidth="300"
-      FontFamily="{StaticResource RobotoFont}"
+      FontFamily="{DynamicResource RobotoFont}"
       Title="regpage1">
 
     <Grid>

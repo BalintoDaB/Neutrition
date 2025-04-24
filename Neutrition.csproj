@@ -25,6 +25,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Pages\regpages\regpage6.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Data\foods.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

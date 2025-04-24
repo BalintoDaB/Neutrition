@@ -10,7 +10,7 @@
                <ResourceDictionary Source="Style/Styles.xaml"/>
                <ResourceDictionary Source="Style/Colors.xaml"/>
            </ResourceDictionary.MergedDictionaries>
-           <!--<FontFamily x:Key="RobotoFont">pack://application:,,,/Fonts/#Roboto</FontFamily>-->
+           <FontFamily x:Key="RobotoFont">pack://application:,,,/Fonts/#Roboto</FontFamily>
        </ResourceDictionary>
    </Application.Resources>
 </Application>

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Neutrition.Pages.regpages"
       mc:Ignorable="d" 
       d:DesignHeight="510" d:DesignWidth="300"
-      FontFamily="{StaticResource RobotoFont}"
+        FontFamily="{DynamicResource RobotoFont}"
       Title="regpage1">
 
     <Grid>
@@ -31,7 +31,21 @@
                     Foreground="{StaticResource Text}"
                     HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Height="72"/>
         <Rectangle x:Name="RECT" Fill="{StaticResource Secondary}" RadiusX="10" RadiusY="10" Height="38" Grid.Row="3" Width="252" VerticalAlignment="Top" Margin="26,6,26,0"/>
-        <DatePicker SelectedDate="{Binding Person.BirthDate}" FontWeight="Bold" Foreground="{StaticResource TextSecondary}" Padding="8,4" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="3" Height="34" Width="236" FontSize="20" Margin="0,8,0,0" FontFamily="{StaticResource RobotoFont}" BorderBrush="Transparent" Background="#00000000" OpacityMask="{DynamicResource Secondary}">
+        <DatePicker SelectedDate="{Binding Person.BirthDate}" 
+            FontWeight="Bold" 
+            Foreground="{StaticResource TextSecondary}" 
+            Padding="8,4" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            Grid.Row="3" 
+            Height="34" 
+            Width="236" 
+            FontSize="20" 
+            Margin="0,8,0,0" 
+            FontFamily="{StaticResource RobotoFont}" 
+            BorderBrush="Transparent" 
+            Background="Transparent" 
+            OpacityMask="{DynamicResource Secondary}">
             <DatePicker.Resources>
                 <Style TargetType="Calendar">
                     <Setter Property="Background" Value="Transparent"/>
