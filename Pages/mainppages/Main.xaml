@@ -30,7 +30,7 @@
 
 
         </Grid>
-        <TextBlock Text="1348 CALORIES LEFT TODAY" FontSize="16" Grid.Row="1" FontWeight="Bold" Foreground="{StaticResource Text}" VerticalAlignment="Bottom" HorizontalAlignment="Center"  Height="21"/>
+        <TextBlock Text="{Binding Person.TDEE}" FontSize="16" Grid.Row="1" FontWeight="Bold" Foreground="{StaticResource Text}" VerticalAlignment="Bottom" HorizontalAlignment="Center"  Height="21"/>
         <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Width="389" Height="47" Margin="0,30,0,0" x:Name="Cals_GR" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

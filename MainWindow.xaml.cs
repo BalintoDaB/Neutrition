@@ -1,5 +1,6 @@
 ﻿using Neutrition.Pages;
 using Neutrition.Resources;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,11 +32,14 @@ namespace Neutrition
         public MainWindow()
         {
             InitializeComponent();
-            MainContentFrame.Navigate(new MainPage());
+            
+            //MessageBox.Show("Welcome " + Person.Name + " to Neutrition");
             Person = new Person();
             Person.Init();
             DataContext = this;
-            
+            MainPage mainPage = new MainPage();
+            mainPage.DataContext = this;
+            MainContFrame.Navigate(mainPage);
 
         }
 
@@ -43,5 +47,7 @@ namespace Neutrition
         {
 
         }
+
+
     }
 }

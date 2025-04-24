@@ -13,10 +13,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Remove="Style\Colors.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Style\Colors.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="App.xaml" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Data\foods.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\meals.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Data\person.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

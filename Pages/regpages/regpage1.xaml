@@ -31,7 +31,7 @@
                            Foreground="{StaticResource Text}"
                            HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Height="72"/>
         <Rectangle x:Name="RECT" Fill="{StaticResource Secondary}" RadiusX="10" RadiusY="10" Height="38" Grid.Row="3" VerticalAlignment="Top" Margin="26,6,25,0"/>
-        <TextBox Text="asdasd"
+        <TextBox Text="{Binding Person.Name}"
                         FontWeight="Bold"
                         Foreground="{StaticResource TextSecondary}"
                         Background="Transparent"

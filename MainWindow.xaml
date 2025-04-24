@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:Neutrition"
         mc:Ignorable="d"
         Background="{StaticResource Primary}"
-        FontFamily="{StaticResource RobotoFont}"
         Title="Neutrition" Height="356" Width="625">
     <Grid>
         <Grid.Resources>
@@ -46,6 +45,6 @@
         </Grid>
         <Rectangle Grid.Column="1" Fill="{StaticResource Line}" VerticalAlignment="Center" Height="299" Width="1">
         </Rectangle>
-        <Frame x:Name="MainContentFrame" Grid.Column="2" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainContFrame" Grid.Column="2" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

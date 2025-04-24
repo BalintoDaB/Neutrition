@@ -1,11 +1,11 @@
 ﻿{
   "Name": "",
-  "Age": 0,
+  "BirthDate": "",
   "CurWeight": 0,
   "GoalWeight": 0,
   "StartWeight": 0,
   "StartDate": "",
   "GoalDate": "",
   "Height": 0,
-  "ActivityLevel":  1.55
+  "ActivityLevel": 1.55
 }

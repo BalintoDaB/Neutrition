@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Neutrition
 {
     /// <summary>
-    /// Interaction logic for Register.xaml
+    /// Interaction logic for TestW.xaml
     /// </summary>
-    public partial class Register : Window
+    public partial class TestW : Window
     {
-        public Register()
+        public TestW()
         {
             InitializeComponent();
         }

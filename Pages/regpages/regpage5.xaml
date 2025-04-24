@@ -42,7 +42,7 @@
         
         
         <StackPanel Orientation="Vertical" Grid.Row="3">
-            <Slider x:Name="Weight_Slider" Minimum="40" Maximum="150" Value="120" IsSnapToTickEnabled="True" FontWeight="Bold" Foreground="{DynamicResource Text}" Padding="8,4" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Row="3" Height="22" Width="236" FontSize="20" Margin="0,14,0,0" FontFamily="{StaticResource RobotoFont}" BorderBrush="Black" Background="#FF60675B" OpacityMask="Black">
+            <Slider x:Name="Weight_Slider" Minimum="40" Maximum="150" Value="{Binding Person.GoalWeight}" IsSnapToTickEnabled="True" FontWeight="Bold" Foreground="{DynamicResource Text}" Padding="8,4" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Row="3" Height="22" Width="236" FontSize="20" Margin="0,14,0,0" FontFamily="{StaticResource RobotoFont}" BorderBrush="Black" Background="#FF60675B" OpacityMask="Black">
                 <Slider.Resources>
                     <Style TargetType="{x:Type Thumb}">
                         <Setter Property="Width" Value="16"/>
@@ -62,12 +62,12 @@
         
         
         <StackPanel Orientation="Horizontal" Grid.Row="4" Width="300">
-            <Button Width="40" Height="40" Margin="20,0,180,0" x:Name="NextButton" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Grid.Row="4" ToolTip="Next" Cursor="Hand" VerticalAlignment="Center">
+            <Button Width="40" Height="40" Margin="20,0,180,0" x:Name="PrevButton" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Grid.Row="4" ToolTip="Next" Cursor="Hand" VerticalAlignment="Center">
                 <Path Data="M 10,0 L -50,20 L 10,40 Z"
           Fill="{StaticResource TextSecondary}" 
           Stretch="Uniform"/>
             </Button>
-            <Button Width="40" Height="40" x:Name="PrevButton" Background="Transparent" BorderThickness="0" ToolTip="Next" Cursor="Hand">
+            <Button Width="40" Height="40" x:Name="NextButton" Background="Transparent" BorderThickness="0" ToolTip="Next" Cursor="Hand">
                 <Path Data="M 10,0 L 70,20 L 10,40 Z"
                 Fill="{StaticResource TextSecondary}" 
                 Stretch="Uniform"/>
