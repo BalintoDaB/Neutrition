@@ -9,7 +9,7 @@
         FontFamily="{StaticResource RobotoFont}"
         FontSize="20"
         Title="Register" Height="510" Width="300">
-    <Grid>
+    <Grid Margin="0">
         <Grid.Resources>
             <Style TargetType="Button">
                 <Setter Property="Foreground" Value="{StaticResource Text}"/>
@@ -18,7 +18,7 @@
                 <Setter Property="HorizontalAlignment" Value="Right" />
             </Style>
         </Grid.Resources>
-        <Frame x:Name="RegContentFrame" Grid.Column="2" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="RegContentFrame" Grid.Column="2" NavigationUIVisibility="Hidden" Margin="0" Width="300"/>
 
     </Grid>
 </Window>
