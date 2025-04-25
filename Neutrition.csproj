@@ -25,6 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Pages\regpages\regpage7.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\regpages\regpage6.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

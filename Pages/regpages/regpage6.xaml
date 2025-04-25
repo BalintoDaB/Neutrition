@@ -13,25 +13,31 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="75"/>
             <RowDefinition Height="140*"/>
-            <RowDefinition Height="118*"/>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="59*"/>
             <RowDefinition Height="123*"/>
             <RowDefinition Height="54*"/>
         </Grid.RowDefinitions>
         <Label Content="HI THERE!" VerticalAlignment="Center" HorizontalAlignment="Center"
                  FontSize="24"
                  FontWeight="Bold"
-                 Foreground="{StaticResource Text}" Height="39"/>
+                 Foreground="{StaticResource Text}" Height="39" Width="120"/>
         <StackPanel Grid.Row="1" Margin="0,12,0,12">
             <Ellipse Width="75" Height="75" Fill="#2F2F2F"/>
             <Rectangle Width="130" Height="80" Fill="#2F2F2F" RadiusX="20" RadiusY="20" Margin="0,5,0,0"/>
         </StackPanel>
-        <Label Content="What  date you'd like to achive your goals by?"
+        <Label Content="What  date you'd like to"
                     FontSize="20"
                     FontWeight="Bold"
                     Foreground="{StaticResource Text}"
-                    HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Height="72" Width="200"/>
-        <Rectangle x:Name="RECT" Fill="{StaticResource Secondary}" RadiusX="10" RadiusY="10" Height="38" Grid.Row="3" Width="252" VerticalAlignment="Top" Margin="26,6,26,0"/>
-        <DatePicker SelectedDate="{Binding Person.BirthDate}" FontWeight="Bold" Foreground="{StaticResource TextSecondary}" Padding="8,4" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="3" Height="34" Width="236" FontSize="20" Margin="0,8,0,0" FontFamily="{StaticResource RobotoFont}" BorderBrush="Transparent" Background="#00000000" OpacityMask="{DynamicResource Secondary}">
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Width="220"/>
+        <Label Content="achive your goals by?"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="{StaticResource Text}"
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Height="72" Width="205"/>
+        <Rectangle x:Name="RECT" Fill="{StaticResource Secondary}" RadiusX="10" RadiusY="10" Height="38" Grid.Row="4" VerticalAlignment="Top" Margin="26,6,22,0"/>
+        <DatePicker SelectedDate="{Binding Person.BirthDate}" FontWeight="Bold" Foreground="{StaticResource TextSecondary}" Padding="8,4" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="4" Height="34" Width="236" FontSize="20" Margin="0,8,0,0" FontFamily="{StaticResource RobotoFont}" BorderBrush="Transparent" Background="#00000000" OpacityMask="{DynamicResource Secondary}">
             <DatePicker.Resources>
                 <Style TargetType="Calendar">
                     <Setter Property="Background" Value="Transparent"/>
@@ -41,16 +47,30 @@
                 </Style>
             </DatePicker.Resources>
         </DatePicker>
-        <StackPanel Orientation="Horizontal" Grid.Row="4" Width="300">
+        <StackPanel Orientation="Horizontal" Grid.Row="5">
             <Button Width="40" Height="40" Margin="20,0,180,0" x:Name="PrevButton" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Grid.Row="4" ToolTip="Next" Cursor="Hand" VerticalAlignment="Center">
                 <Path Data="M 10,0 L -50,20 L 10,40 Z"
           Fill="{StaticResource TextSecondary}" 
           Stretch="Uniform"/>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent" BorderBrush="Transparent">
+                            <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
             <Button Width="40" Height="40" x:Name="NextButton" Background="Transparent" BorderThickness="0" ToolTip="Next" Cursor="Hand">
                 <Path Data="M 10,0 L 70,20 L 10,40 Z"
                 Fill="{StaticResource TextSecondary}" 
                 Stretch="Uniform"/>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent" BorderBrush="Transparent">
+                            <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
         </StackPanel>
     </Grid>
