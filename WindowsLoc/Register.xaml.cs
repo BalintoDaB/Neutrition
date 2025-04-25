@@ -1,4 +1,5 @@
-﻿using Neutrition.Pages.regpages;
+﻿using Neutrition.Pages.editpages;
+using Neutrition.Pages.regpages;
 using Neutrition.Resources;
 using System;
 using System.Collections.Generic;
@@ -47,6 +48,15 @@ namespace Neutrition
             InitPages();
         }
 
+        public Register(EditPerson editPersonPage)
+        {
+            InitializeComponent();
+            editPersonPage.Save_BTN.Click += Save_BTN_Click;
+            editPersonPage.Cancel_BTN.Click += Cancel_BTN_Click;
+            RegContentFrame.Navigate(editPersonPage);
+
+        }
+
         private void InitPages()
         {
             ((regpage1)pages[0]).NextButton.Click += Next_Bnt;
@@ -91,6 +101,18 @@ namespace Neutrition
             this.Close();
         }
 
+
+        private void Save_BTN_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true; // Editnél mentés
+            this.Close();
+        }
+
+        private void Cancel_BTN_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false; // Editnél cancel
+            this.Close();
+        }
 
     }
 }
