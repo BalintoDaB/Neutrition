@@ -17,7 +17,7 @@
             <RowDefinition Height="123*"/>
             <RowDefinition Height="54*"/>
         </Grid.RowDefinitions>
-        <Label Content="HI THERE!" VerticalAlignment="Center" HorizontalAlignment="Center"
+        <Label Content="{Binding Person.Name}"  ContentStringFormat="HI {0}!" VerticalAlignment="Center" HorizontalAlignment="Center"
                  FontSize="24"
                  FontWeight="Bold"
                  Foreground="{StaticResource Text}" Height="39"/>

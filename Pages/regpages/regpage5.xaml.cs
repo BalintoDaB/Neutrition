@@ -23,6 +23,7 @@ namespace Neutrition.Pages.regpages
         public regpage5()
         {
             InitializeComponent();
+            this.DataContext = this;
         }
     }
 }

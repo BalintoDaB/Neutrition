@@ -21,8 +21,14 @@ namespace Neutrition.Resources
         public int Height { get; set; }
         public int Age { get; set; }
         public DateTime BirthDate { get; set; }
+        public string BirthDateFormatted { get { return BirthDate.ToString("yyyy-MM-dd"); } }
+        
         public DateTime StartDate { get; set; }
         public float ActivityLevel { get; set; }
+        public double BMI { get
+            {
+                return StartWeight / Math.Pow((double)Height/100, 2);
+            } }
         public DateTime GoalDate { get; set; }
         //Mifflin-St Jeor Equation
         public float TDEE { get {  return ((float)(10 * CurWeight + 6.25 * Height - 5 * Age + 5))*ActivityLevel; } }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Neutrition.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,14 @@ namespace Neutrition.Pages.editpages
     /// </summary>
     public partial class EditPerson : Page
     {
+        public Person PersonModelToChange { get; set; } // Objektum amit a user real time változtat
         public EditPerson()
         {
             InitializeComponent();
+            Person p = new Person(); // Fájlból olvassa, hogy a memóriacímek ne befolyásolja a változók egymástól való függetlenségét
+            p.LoadFromJson();
+            PersonModelToChange = p;
+            this.DataContext = this;
         }
     }
 }
