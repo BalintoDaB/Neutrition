@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Neutrition"
         mc:Ignorable="d"
         Background="{StaticResource Primary}"
-        Title="Neutrition" Height="356" Width="625">
+        Title="Neutrition" Height="400" Width="750">
     <Grid>
         <Grid.Resources>
             <Style TargetType="Button">

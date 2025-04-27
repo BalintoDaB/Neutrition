@@ -59,9 +59,9 @@ namespace Neutrition.Resources
                     GoalWeight = newPerson.Person.GoalWeight;
                     Height = newPerson.Person.Height;
                     //ActivityLevel = newPerson.Person.ActivityLevel;
-                    ActivityLevel = 1.2f;
-                    //GoalDate = newPerson.Person.GoalDate;
-                    GoalDate = DateTime.Now.AddDays((CurWeight - GoalWeight) * 7700 / DailyCaloricIntake);
+                    ActivityLevel = newPerson.Person.ActivityLevel;
+                    GoalDate = newPerson.Person.GoalDate;
+                    //GoalDate = DateTime.Now.AddDays((CurWeight - GoalWeight) * 7700 / DailyCaloricIntake);
                     BirthDate = newPerson.Person.BirthDate;
                     Age = DateTime.Now.Year - BirthDate.Year;
                     StartDate = DateTime.Now.Date;

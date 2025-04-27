@@ -37,7 +37,7 @@
                     Foreground="{StaticResource Text}"
                     HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Height="72" Width="205"/>
         <Rectangle x:Name="RECT" Fill="{StaticResource Secondary}" RadiusX="10" RadiusY="10" Height="38" Grid.Row="4" VerticalAlignment="Top" Margin="26,6,22,0"/>
-        <DatePicker SelectedDate="{Binding Person.BirthDate}" FontWeight="Bold" Foreground="{StaticResource TextSecondary}" Padding="8,4" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="4" Height="34" Width="236" FontSize="20" Margin="0,8,0,0" FontFamily="{StaticResource RobotoFont}" BorderBrush="Transparent" Background="#00000000" OpacityMask="{DynamicResource Secondary}">
+        <DatePicker SelectedDate="{Binding Person.GoalDate}" FontWeight="Bold" Foreground="{StaticResource TextSecondary}" Padding="8,4" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="4" Height="34" Width="236" FontSize="20" Margin="0,8,0,0" FontFamily="{StaticResource RobotoFont}" BorderBrush="Transparent" Background="#00000000" OpacityMask="{DynamicResource Secondary}">
             <DatePicker.Resources>
                 <Style TargetType="Calendar">
                     <Setter Property="Background" Value="Transparent"/>

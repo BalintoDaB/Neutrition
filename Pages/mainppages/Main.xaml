@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Neutrition.Pages"
       mc:Ignorable="d" 
       FontFamily="{DynamicResource RobotoFont}"
-      d:DesignHeight="356" d:DesignWidth="495"
+      d:DesignHeight="300" d:DesignWidth="495"
       Title="Main">
 
     <Grid x:Name="MainContent" Grid.Column="2" Margin="10,0,0,0">
@@ -30,7 +30,7 @@
 
 
         </Grid>
-        <Label Content="{Binding CaloriesLeftToday}" ContentStringFormat="Calories left: {0} kcal"  FontSize="16" Grid.Row="1" FontWeight="Bold" Foreground="{StaticResource Text}" VerticalAlignment="Bottom" HorizontalAlignment="Center"  Height="21"/>
+        <Label Content="{Binding CaloriesLeftToday}" ContentStringFormat="Calories left: {0} kcal"  FontSize="16" Grid.Row="1" FontWeight="Bold" Foreground="{StaticResource Text}" VerticalAlignment="Bottom" HorizontalAlignment="Center"  Height="40"/>
         <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Width="389" Height="94" Margin="0,30,0,0" x:Name="Cals_GR" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

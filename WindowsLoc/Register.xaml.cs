@@ -30,7 +30,7 @@ namespace Neutrition
         }
 
         private int curPageIndex = 0;
-        private List<Page> pages = new List<Page>() { new regpage1(), new regpage2(), new regpage3(), new regpage4(), new regpage5() };
+        private List<Page> pages = new List<Page>() { new regpage1(), new regpage2(), new regpage3(), new regpage4(), new regpage5(), new regpage6(), new regpage7() };
         private Person person = new Person();
 
         public Person Person
@@ -43,6 +43,7 @@ namespace Neutrition
         {
             InitializeComponent();
             Person.BirthDate = DateTime.Now;
+            Person.GoalDate = DateTime.Now;
             DataContext = this;
             RegContentFrame.Navigate(pages[curPageIndex]);
             InitPages();
@@ -67,12 +68,18 @@ namespace Neutrition
             ((regpage4)pages[3]).NextButton.Click += Next_Bnt;
             ((regpage4)pages[3]).PrevButton.Click += Prev_Bnt;
             ((regpage5)pages[4]).PrevButton.Click += Prev_Bnt;
-            ((regpage5)pages[4]).NextButton.Click += Fin_Btn;
+            ((regpage5)pages[4]).NextButton.Click += Next_Bnt;
+            ((regpage6)pages[5]).PrevButton.Click += Prev_Bnt;
+            ((regpage6)pages[5]).NextButton.Click += Next_Bnt;
+            ((regpage7)pages[6]).PrevButton.Click += Prev_Bnt;
+            ((regpage7)pages[6]).NextButton.Click += Fin_Btn;
             pages[0].DataContext = this;
             pages[1].DataContext = this;
             pages[2].DataContext = this;
             pages[3].DataContext = this;
             pages[4].DataContext = this;
+            pages[5].DataContext = this;
+            pages[6].DataContext = this;
         }
 
         private void Next_Bnt(object sender, RoutedEventArgs e)
