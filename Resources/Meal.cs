@@ -12,17 +12,20 @@ namespace Neutrition.Resources
         public string Name { get; set; }
         public List<int> FoodsId { get; set; }
         public List<Food> Foods { get; set; } = new List<Food>();
+
+        public DateTime EatDate { get; set; }
         public int Calories { get { return Foods.Sum(x => x.Calories); } }
         public int Protein { get { return Foods.Sum(x => x.Protein); } }
         public int Carbs { get { return Foods.Sum(x => x.Carbs); } }
         public int Fats { get { return Foods.Sum(x => x.Fats); } }
         public int Fiber { get { return Foods.Sum(x => x.Fiber); } }
 
-        public Meal(string name)
+        public Meal(string name, DateTime EatTime)
         {
             Name = name;
             Foods = new List<Food>();
             FoodsId = new List<int>();
+            EatDate = EatTime;
         }
 
         public void AddFood(int foodId)
@@ -52,7 +55,7 @@ namespace Neutrition.Resources
 
         public string ToJson()
         {
-            string jsonTxt = "{ \"Id\": " + Id + ", \"Name\": \"" + Name + "\", \"FoodsId\": [";
+            string jsonTxt = "{ \"Id\": " + Id + ", \"EatDate\": \""+ EatDate +", \"Name\": \"" + Name + ", \"Name\": \"" + Name + "\", \"FoodsId\": [";
             foreach (int foodId in FoodsId)
             {
                 jsonTxt += foodId + ",";

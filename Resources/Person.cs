@@ -27,12 +27,14 @@ namespace Neutrition.Resources
         public float ActivityLevel { get; set; }
         public double BMI { get
             {
-                return StartWeight / Math.Pow((double)Height/100, 2);
+                return CurWeight / Math.Pow((double)Height/100, 2);
             } }
         public DateTime GoalDate { get; set; }
         //Mifflin-St Jeor Equation
         public float TDEE { get {  return ((float)(10 * CurWeight + 6.25 * Height - 5 * Age + 5))*ActivityLevel; } }
         public float DailyCaloricIntake { get { return TDEE - (((CurWeight-GoalWeight)*7700)/ (GoalDate - DateTime.Now.Date).Days); } }
+
+        public float DailyCalorieToGoal { get { return TDEE + DailyCaloricIntake; } }
 
         public void Init()
         {

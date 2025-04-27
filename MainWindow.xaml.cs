@@ -33,11 +33,34 @@ namespace Neutrition
         public MainPage MainPageView { get; set; } = new MainPage();
 
         private Person person;
+        private int caloriesLeftToday;
 
         public Person Person
         {
             get { return person; }
             set { person = value; OnPropertyChanged(nameof(Person)); }
+        }
+
+        public int CaloriesLeftToday
+        {
+            get { return (int)(Person.DailyCalorieToGoal - Storage.Meals.Sum(x => x.Calories)); }
+        }
+
+        public int Fats
+        {
+            get { return Storage.fats; }
+        }
+        public int Carbs
+        {
+            get { return Storage.carbs; }
+        }
+        public int Fibers
+        {
+            get { return Storage.fiber; }
+        }
+        public int Proteins
+        {
+            get { return Storage.protein; }
         }
 
         public MainWindow()
@@ -48,6 +71,8 @@ namespace Neutrition
             DataContext = this;
             //ProfilPageView.DataContext = this;
             MainPageView.DataContext = this;
+            Storage.LoadFoods();
+            Storage.LoadMeals();
             MainContFrame.Navigate(MainPageView);
 
 

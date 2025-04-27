@@ -9,6 +9,11 @@ namespace Neutrition.Resources
 {
     public static class Storage
     {
+        public static int fats { get { return Meals.Where(x => x.EatDate.Date == DateTime.Now.Date).Sum(x => x.Fats); } }
+        public static int carbs { get { return Meals.Where(x => x.EatDate.Date == DateTime.Now.Date).Sum(x => x.Carbs); } }
+        public static int protein { get { return Meals.Where(x => x.EatDate.Date == DateTime.Now.Date).Sum(x => x.Protein); } }
+        public static int fiber { get { return Meals.Where(x => x.EatDate.Date == DateTime.Now.Date).Sum(x => x.Fiber); } }
+
         public static List<Food> Foods { get; set; } = new List<Food>();
         public static List<Meal> Meals { get; set; } = new List<Meal>();
 
@@ -34,6 +39,10 @@ namespace Neutrition.Resources
         public static void LoadFoods()
         {
             string json = System.IO.File.ReadAllText("Data/foods.json");
+            if(json == "")
+            {
+                return;
+            }
             JsonDocument jsonArray = JsonSerializer.Deserialize<JsonDocument>(json);
             foreach (JsonElement food in jsonArray.RootElement.EnumerateArray())
             {
@@ -60,6 +69,31 @@ namespace Neutrition.Resources
             }
             jsonTxt += "]";
             System.IO.File.WriteAllText("Data/meals.json", jsonTxt);
+        }
+
+        public static void LoadMeals() 
+        { 
+            string json = System.IO.File.ReadAllText("Data/meals.json");
+            if(json == "")
+            {
+                return;
+            }
+            JsonDocument jsonArray = JsonSerializer.Deserialize<JsonDocument>(json);
+            foreach (JsonElement meal in jsonArray.RootElement.EnumerateArray())
+            {
+                string name = meal.GetProperty("Name").GetString();
+                DateTime EatTime = DateTime.Parse(meal.GetProperty("EatDate").GetString());
+                Meal newMeal = new Meal(name, EatTime);
+                List<int> foodIds = meal.GetProperty("FoodsId").EnumerateArray()
+                    .Select(id => id.GetInt32())
+                    .ToList();
+                foreach (int Id in foodIds)
+                {
+                    newMeal.AddFood(Id);
+                }
+
+                Meals.Add(newMeal);
+            }
         }
     }
 }

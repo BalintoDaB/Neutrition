@@ -30,8 +30,8 @@
 
 
         </Grid>
-        <TextBlock Text="{Binding Person.TDEE}" FontSize="16" Grid.Row="1" FontWeight="Bold" Foreground="{StaticResource Text}" VerticalAlignment="Bottom" HorizontalAlignment="Center"  Height="21"/>
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Width="389" Height="47" Margin="0,30,0,0" x:Name="Cals_GR" Grid.Row="2">
+        <Label Content="{Binding CaloriesLeftToday}" ContentStringFormat="Calories left: {0} kcal"  FontSize="16" Grid.Row="1" FontWeight="Bold" Foreground="{StaticResource Text}" VerticalAlignment="Bottom" HorizontalAlignment="Center"  Height="21"/>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Width="389" Height="94" Margin="0,30,0,0" x:Name="Cals_GR" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
@@ -41,15 +41,24 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
 
-            <Rectangle Fill="{StaticResource Secondary}" RadiusX="10" RadiusY="10" ClipToBounds="True" Grid.ColumnSpan="7"/>
+            <Rectangle Fill="{StaticResource Secondary}" RadiusX="10" RadiusY="10" ClipToBounds="True" Grid.ColumnSpan="7" Grid.RowSpan="2"/>
 
 
             <TextBlock Text="FATS(G):" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" Grid.Column="0" Foreground="{DynamicResource Text}"/>
             <TextBlock Text="CARBS(G):" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" Grid.Column="2" Foreground="{DynamicResource Text}"/>
             <TextBlock Text="PROTEIN(G):" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" Grid.Column="4" Foreground="{DynamicResource Text}"/>
             <TextBlock Text="FIBER(G):" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" Grid.Column="6" Foreground="{DynamicResource Text}"/>
+
+            <Label Content="{Binding Fats}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" Grid.Column="0" Grid.Row="1" Foreground="{DynamicResource Text}"/>
+            <Label Content="{Binding Carbs}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" Grid.Column="2" Grid.Row="1" Foreground="{DynamicResource Text}"/>
+            <Label Content="{Binding Proteins}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" Grid.Column="4" Grid.Row="1" Foreground="{DynamicResource Text}"/>
+            <Label Content="{Binding Fibers}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" Grid.Column="6" Grid.Row="1" Foreground="{DynamicResource Text}"/>
 
 
             <Rectangle Grid.Column="1" Width="1" VerticalAlignment="Stretch" Margin="0,10"/>
