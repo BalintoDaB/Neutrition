@@ -1,97 +1,78 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Neutrition.Resources
 {
     public static class Storage
     {
-        public static int fats { get { return Meals.Where(x => x.EatDate.Date == DateTime.Now.Date).Sum(x => x.Fats); } }
-        public static int carbs { get { return Meals.Where(x => x.EatDate.Date == DateTime.Now.Date).Sum(x => x.Carbs); } }
-        public static int protein { get { return Meals.Where(x => x.EatDate.Date == DateTime.Now.Date).Sum(x => x.Protein); } }
-        public static int fiber { get { return Meals.Where(x => x.EatDate.Date == DateTime.Now.Date).Sum(x => x.Fiber); } }
+        public static int fats { get { return AllMeal.Where(x => x.EatDate.Date == DateTime.Now.Date).Sum(x => x.Fats); } }
+        public static int carbs { get { return AllMeal.Where(x => x.EatDate.Date == DateTime.Now.Date).Sum(x => x.Carbs); } }
+        public static int protein { get { return AllMeal.Where(x => x.EatDate.Date == DateTime.Now.Date).Sum(x => x.Protein); } }
+        public static int fiber { get { return AllMeal.Where(x => x.EatDate.Date == DateTime.Now.Date).Sum(x => x.Fiber); } }
 
-        public static List<Food> Foods { get; set; } = new List<Food>();
-        public static List<Meal> Meals { get; set; } = new List<Meal>();
+        public static ObservableCollection<Meal> Meals { get; set; } = new ObservableCollection<Meal>();
+        public static ObservableCollection<Meal> AllMeal { get; set; } = new ObservableCollection<Meal>();
 
-        public static void Init()
-        {
-            Foods = new List<Food>();
-            Meals = new List<Meal>();
-        }
 
-        public static void SaveFoods()
+
+        public static void SaveMeals(IEnumerable<Meal> meals, string path="")
         {
             string jsonTxt = "[";
-            foreach (Food food in Foods)
-            {
-                jsonTxt += food.ToJson() + "\n";
-                //if not last add ,
-                if (food != Foods.Last())
-                    jsonTxt += ",";
-            }
-            jsonTxt += "]";
-            System.IO.File.WriteAllText("Data/foods.json", jsonTxt);
-        }
-        public static void LoadFoods()
-        {
-            string json = System.IO.File.ReadAllText("Data/foods.json");
-            if(json == "")
-            {
-                return;
-            }
-            JsonDocument jsonArray = JsonSerializer.Deserialize<JsonDocument>(json);
-            foreach (JsonElement food in jsonArray.RootElement.EnumerateArray())
-            {
-                Food newFood = new Food();
-                newFood.Id = food.GetProperty("Id").GetInt32();
-                newFood.Name = food.GetProperty("Name").GetString();
-                newFood.Calories = food.GetProperty("Calories").GetInt32();
-                newFood.Protein = food.GetProperty("Protein").GetInt32();
-                newFood.Carbs = food.GetProperty("Carbs").GetInt32();
-                newFood.Fats = food.GetProperty("Fats").GetInt32();
-                newFood.Fiber = food.GetProperty("Fiber").GetInt32();
-                Foods.Add(newFood);
-            }
-        }
-        public static void SaveMeals()
-        {
-            string jsonTxt = "[";
-            foreach (Meal meal in Meals)
+            foreach (Meal meal in meals)
             {
                 jsonTxt += meal.ToJson() + "\n";
                 //if not last add ,
-                if (meal != Meals.Last())
+                if (meal != meals.Last())
                     jsonTxt += ",";
             }
             jsonTxt += "]";
-            System.IO.File.WriteAllText("Data/meals.json", jsonTxt);
+            System.IO.File.WriteAllText($"Data/meals{path}.json", jsonTxt);
         }
-
-        public static void LoadMeals() 
-        { 
-            string json = System.IO.File.ReadAllText("Data/meals.json");
-            if(json == "")
+        public static void LoadMeals()
+        {
+            string json = System.IO.File.ReadAllText("Data/mealsEaten.json");
+            if (json == "")
             {
                 return;
             }
             JsonDocument jsonArray = JsonSerializer.Deserialize<JsonDocument>(json);
             foreach (JsonElement meal in jsonArray.RootElement.EnumerateArray())
             {
-                string name = meal.GetProperty("Name").GetString();
-                DateTime EatTime = DateTime.Parse(meal.GetProperty("EatDate").GetString());
-                Meal newMeal = new Meal(name, EatTime);
-                List<int> foodIds = meal.GetProperty("FoodsId").EnumerateArray()
-                    .Select(id => id.GetInt32())
-                    .ToList();
-                foreach (int Id in foodIds)
-                {
-                    newMeal.AddFood(Id);
-                }
-
+                Meal newMeal = new Meal();
+                newMeal.Id = meal.GetProperty("Id").GetInt32();
+                newMeal.Name = meal.GetProperty("Name").GetString();
+                newMeal.Calories = meal.GetProperty("Calories").GetInt32();
+                newMeal.Protein = meal.GetProperty("Protein").GetInt32();
+                newMeal.Carbs = meal.GetProperty("Carbs").GetInt32();
+                newMeal.Fats = meal.GetProperty("Fats").GetInt32();
+                newMeal.Fiber = meal.GetProperty("Fiber").GetInt32();
+                AllMeal.Add(newMeal);
+            }
+        }
+        public static void LoadEatenMeals() 
+        {
+            string json = System.IO.File.ReadAllText("Data/meals.json");
+            if (json == "")
+            {
+                return;
+            }
+            JsonDocument jsonArray = JsonSerializer.Deserialize<JsonDocument>(json);
+            foreach (JsonElement meal in jsonArray.RootElement.EnumerateArray())
+            {
+                Meal newMeal = new Meal();
+                newMeal.Id = meal.GetProperty("Id").GetInt32();
+                newMeal.Name = meal.GetProperty("Name").GetString();
+                newMeal.Calories = meal.GetProperty("Calories").GetInt32();
+                newMeal.Protein = meal.GetProperty("Protein").GetInt32();
+                newMeal.Carbs = meal.GetProperty("Carbs").GetInt32();
+                newMeal.Fats = meal.GetProperty("Fats").GetInt32();
+                newMeal.Fiber = meal.GetProperty("Fiber").GetInt32();
                 Meals.Add(newMeal);
             }
         }

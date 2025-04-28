@@ -10,58 +10,36 @@ namespace Neutrition.Resources
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<int> FoodsId { get; set; }
-        public List<Food> Foods { get; set; } = new List<Food>();
-
+        public int Calories { get; set; }
+        public int Protein { get; set; }
+        public int Carbs { get; set; }
+        public int Fats { get; set; }
+        public int Fiber { get; set; }
         public DateTime EatDate { get; set; }
-        public int Calories { get { return Foods.Sum(x => x.Calories); } }
-        public int Protein { get { return Foods.Sum(x => x.Protein); } }
-        public int Carbs { get { return Foods.Sum(x => x.Carbs); } }
-        public int Fats { get { return Foods.Sum(x => x.Fats); } }
-        public int Fiber { get { return Foods.Sum(x => x.Fiber); } }
 
-        public Meal(string name, DateTime EatTime)
+        public Meal(int id, string name, int calories, int protein, int carbs, int fats, int fiber, DateTime eatdate)
         {
+            Id = id;
             Name = name;
-            Foods = new List<Food>();
-            FoodsId = new List<int>();
-            EatDate = EatTime;
+            Calories = calories;
+            Protein = protein;
+            Carbs = carbs;
+            Fats = fats;
+            Fiber = fiber;
+            EatDate = eatdate;
+        }
+        public Meal()
+        {
+            
         }
 
-        public void AddFood(int foodId)
+        public override string ToString()
         {
-            FoodsId.Add(foodId);
-            Food food = Storage.Foods.FirstOrDefault(x => x.Id == foodId);
-            if (food != null)
-            {
-                Foods.Add(food);
-            }
+            return Name;
         }
-
-        public void RemoveFood(int foodId)
-        {
-            FoodsId.Remove(foodId);
-            Food food = Foods.FirstOrDefault(x => x.Id == foodId);
-            if (food != null)
-            {
-                Foods.Remove(food);
-            }
-        }
-        public void ClearFoods()
-        {
-            Foods.Clear();
-            FoodsId.Clear();
-        }
-
         public string ToJson()
         {
-            string jsonTxt = "{ \"Id\": " + Id + ", \"EatDate\": \""+ EatDate +", \"Name\": \"" + Name + ", \"Name\": \"" + Name + "\", \"FoodsId\": [";
-            foreach (int foodId in FoodsId)
-            {
-                jsonTxt += foodId + ",";
-            }
-            jsonTxt = jsonTxt.TrimEnd(',') + "] }";
-            return jsonTxt;
+            return "{ \"Id\": " + Id + ", \"EatDate\": \""+ EatDate +"\", \"Name\": \"" + Name + "\", \"Calories\": " + Calories + ", \"Protein\": " + Protein + ", \"Carbs\": " + Carbs + ", \"Fats\": " + Fats + ", \"Fiber\": " + Fiber + "}";
         }
     }
 }

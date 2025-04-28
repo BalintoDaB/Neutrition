@@ -32,6 +32,8 @@ namespace Neutrition
         public Profile ProfilPageView { get; set; } = new Profile();
         public MainPage MainPageView { get; set; } = new MainPage();
 
+        public DailyMealList DailyMealListView { get; set; } = new DailyMealList();
+
         private Person person;
         private int caloriesLeftToday;
 
@@ -41,9 +43,22 @@ namespace Neutrition
             set { person = value; OnPropertyChanged(nameof(Person)); }
         }
 
+
+        public int StatusWidth { get
+            {
+                if (CaloriesLeftToday > 0)
+                {
+                    //MessageBox.Show((370 * (CaloriesLeftToday / Person.DailyCalorieToGoal)).ToString());
+                    return (int)(370 * (CaloriesLeftToday / Person.DailyCalorieToGoal));
+                }
+                else
+                {
+                    return 0;
+                }
+            } }
         public int CaloriesLeftToday
         {
-            get { return (int)(Person.DailyCalorieToGoal - Storage.Meals.Sum(x => x.Calories)); }
+            get { return (int)(Person.DailyCalorieToGoal - Storage.AllMeal.Where(x=>x.EatDate.Date == DateTime.Now.Date).Sum(x => x.Calories)); }
         }
 
         public int Fats
@@ -71,10 +86,9 @@ namespace Neutrition
             DataContext = this;
             //ProfilPageView.DataContext = this;
             MainPageView.DataContext = this;
-            Storage.LoadFoods();
             Storage.LoadMeals();
+            Storage.LoadEatenMeals();
             MainContFrame.Navigate(MainPageView);
-
 
 
         }
@@ -95,7 +109,24 @@ namespace Neutrition
         {
 
             Person.LoadFromJson();
+            OnPropertyChanged(nameof(Fats));
+            OnPropertyChanged(nameof(Carbs));
+            OnPropertyChanged(nameof(Fibers));
+            OnPropertyChanged(nameof(Proteins));
+            OnPropertyChanged(nameof(CaloriesLeftToday));
+            OnPropertyChanged(nameof(StatusWidth));
             MainContFrame.Navigate(MainPageView);
+        }
+
+        private void Meals_BTN_Click(object sender, RoutedEventArgs e)
+        {
+            MainContFrame.Navigate(DailyMealListView);
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Storage.SaveMeals(Storage.Meals);
+            Storage.SaveMeals(Storage.AllMeal, "Eaten");
         }
     }
 }

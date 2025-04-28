@@ -1,4 +1,5 @@
 ﻿using Neutrition.Pages.editpages;
+using Neutrition.Pages.mainppages;
 using Neutrition.Pages.regpages;
 using Neutrition.Resources;
 using System;
@@ -56,6 +57,17 @@ namespace Neutrition
             editPersonPage.Cancel_BTN.Click += Cancel_BTN_Click;
             RegContentFrame.Navigate(editPersonPage);
 
+        }
+
+        public Register(EditFood foodPage)
+        {
+            InitializeComponent();
+            foodPage.Save_BTN.Click += FoodSaveButton;
+            RegContentFrame.Navigate(foodPage);
+        }
+        private void FoodSaveButton(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         private void InitPages()

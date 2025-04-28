@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Neutrition"
         mc:Ignorable="d"
         Background="{StaticResource Primary}"
-        Title="Neutrition" Height="400" Width="750">
+        Title="Neutrition" Height="400" Width="750" Closed="Window_Closed"  >
     <Grid>
         <Grid.Resources>
             <Style TargetType="Button">
@@ -45,7 +45,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button Content="MEALS" Background="Transparent" Margin="10" Padding="5" BorderBrush="Transparent" IsEnabled="True" x:Name="Meals_BTN" Grid.Row="1">
+            <Button Content="MEALS" Background="Transparent" Margin="10" Padding="5" BorderBrush="Transparent" IsEnabled="True" x:Name="Meals_BTN" Grid.Row="1" Click="Meals_BTN_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="Transparent" BorderBrush="Transparent">
@@ -54,7 +54,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button Content="MY FOODS" Background="Transparent" Margin="10" Padding="5" BorderBrush="Transparent" IsEnabled="True" x:Name="MyFoods_BTN" Grid.Row="2">
+            <!--<Button Content="MY FOODS" Background="Transparent" Margin="10" Padding="5" BorderBrush="Transparent" IsEnabled="True" x:Name="MyFoods_BTN" Grid.Row="2">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="Transparent" BorderBrush="Transparent">
@@ -62,7 +62,7 @@
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
-            </Button>
+            </Button>-->
             <Button Content="PROFILE" Background="Transparent" Margin="10" Padding="5" BorderBrush="Transparent" IsEnabled="True" x:Name="Profile_BTN" Grid.Row="3" Click="Profile_BTN_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">

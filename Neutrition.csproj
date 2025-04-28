@@ -37,6 +37,9 @@
     <None Update="Data\foods.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Data\mealsEaten.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Data\meals.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
